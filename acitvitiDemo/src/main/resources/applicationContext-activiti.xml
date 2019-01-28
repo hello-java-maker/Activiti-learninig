@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置流程引擎配置信息对象 -->
+    <bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration"
+          p:dataSource-ref="dataSource"
+          p:transactionManager-ref="transactionManager"
+          p:databaseSchemaUpdate="true"
+          p:jobExecutorActivate="false"
+          p:databaseType="mysql"
+          p:activityFontName="宋体"
+          p:labelFontName="黑体"
+          p:xmlEncoding="utf-8"/>
+
+    <!-- 配置流程引擎 -->
+    <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean"
+          p:processEngineConfiguration-ref="processEngineConfiguration"/>
+
+    <!-- 配置六个服务Bean -->
+    <bean id="repositoryService" factory-bean="processEngine"
+          factory-method="getRepositoryService"/>
+    <bean id="runtimeService" factory-bean="processEngine"
+          factory-method="getRuntimeService"/>
+    <bean id="taskService" factory-bean="processEngine"
+          factory-method="getTaskService"/>
+    <bean id="historyService" factory-bean="processEngine"
+          factory-method="getHistoryService"/>
+    <bean id="formService" factory-bean="processEngine"
+          factory-method="getFormService"/>
+    <bean id="identityService" factory-bean="processEngine"
+          factory-method="getIdentityService"/>
+
+</beans>

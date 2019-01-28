@@ -1,0 +1,26 @@
+# Editor directories and files
+.idea
+.settings
+target
+
+#java
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
+
+# ignore idea files
+.project
+.classpath
+.settings
+*.iml
+
+
