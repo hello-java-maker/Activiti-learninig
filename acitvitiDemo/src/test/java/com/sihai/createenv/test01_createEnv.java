@@ -1,4 +1,4 @@
-package com.sihai.test01;
+package com.sihai.createenv;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
@@ -39,9 +39,9 @@ public class test01_createEnv {
         pec.setJdbcUsername("root");
         // 设置密码
 
-        pec.setJdbcPassword("root");
+        pec.setJdbcPassword("0911SIHAI");
 
-        pec.setJdbcPassword("XXXX");
+//        pec.setJdbcPassword("XXXX");
 
         // 构建流程引擎对象
         ProcessEngine pe = pec.buildProcessEngine(); // 调用访方法才会创建数据表
